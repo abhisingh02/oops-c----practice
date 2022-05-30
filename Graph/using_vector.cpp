@@ -17,6 +17,7 @@ int main()
         adj[u].push_back(v);//if directed graph only this use
         adj[v].push_back(u);
         /*
+        for edge length if given
         adj[u].push_back({v,w});
         adj[v].push_back({u,w});
         */
