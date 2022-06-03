@@ -7,34 +7,30 @@ class Solution
     vector <int> bfsofGraph(int v,vector <int> adj[])
     {
         vector <int> bfs;
-        vector <int> vis(v+1,0);
-        for(int i=1;i<=v;i++)
-        {
-            if(!vis[i])
-            {
-                queue <int> q;
-                q.push(i);
-                vis[i]=1;
-                while(!q.empty())
-                {
-                    int node = q.front();
-                    q.pop();
-                    bfs.push_back(node);
+        vector <int> vis(v,0);
+        queue <int> q;
+        q.push(0);
+        vis[0]=1;
 
-                    for(auto it : adj[node])
-                    {
-                        if(!vis[it])
-                        {
-                            q.push(it);
-                            vis[it]=1;
-                        }
-                    }
+        while(!q.empty())
+        {
+            int node = q.front();
+            q.pop();
+            bfs.push_back(node);
+
+            for(auto it : adj[node])
+            {
+                if(!vis[it])
+                {
+                    q.push(it);
+                    vis[it]=1;  
                 }
             }
         }
         return bfs;
     }
 };
+
 
 void display(vector <int> &a)
 {
